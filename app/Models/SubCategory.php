@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 class SubCategory extends Model
 {
     use HasFactory;
-    protected $fillable=['name','categories_id'];
+    protected $fillable=['name','categories_id','price'];
     public function Category()
     {
         return $this->belongsTo(Category::class,'categories_id');

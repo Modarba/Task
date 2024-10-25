@@ -28,6 +28,8 @@ Route::post('AddS',[\App\Http\Controllers\Dashboard\SubCategoryController::class
 Route::get('deleteS/{id}',[\App\Http\Controllers\Dashboard\SubCategoryController::class,'DeleteSub']);
 Route::post('AddP',[\App\Http\Controllers\Dashboard\ProductController::class,'AddProduct']);
 Route::get('deleteP',[\App\Http\Controllers\Dashboard\ProductController::class,'DeleteProduct']);
+Route::post('Adddiscount/{id}',[\App\Http\Controllers\Dashboard\CategoryController::class,'AddDiscount']);
+
 
 //---------------------------------------Api--------------------------------------------
 Route::get('GetAC',[\App\Http\Controllers\Api\CategoryController::class,'GetAll']);
@@ -35,10 +37,6 @@ Route::get('GetCS',[\App\Http\Controllers\Api\CategoryController::class,'GetCS']
 Route::get('GetCP',[\App\Http\Controllers\Api\CategoryController::class,'GetCP']);
 Route::get('GetS',[\App\Http\Controllers\Api\SubCategoryController::class,'GetS']);
 Route::get('GetP',[\App\Http\Controllers\Api\ProductController::class,'GetP']);
-
-
-
-
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

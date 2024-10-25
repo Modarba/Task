@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->double('price')->default(0);
-            $table->foreignId('categories_id')->constrained('categories')->cascadeOnDelete();
-            $table->foreignId('sub_categories_id')->constrained('sub_categories')->cascadeOnDelete();
+            $table->integer('price')->default(0);
+            $table->float('percent')->default(0);
+            $table->foreignId('categories_id')->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('sub_categories_id')->constrained('sub_categories')->cascadeOnDelete()->cascadeOnUpdate();
+
             $table->timestamps();
         });
     }

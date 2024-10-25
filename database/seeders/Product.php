@@ -14,7 +14,7 @@ class Product extends Seeder
     public function run(): void
     {
         $array_data=[
-            ['name'=>'h1','price'=>100,'sub_categories_id'=>1,'categories_id'=>1],['name'=>'h2','price'=>200,'sub_categories_id'=>2,'categories_id'=>2],['name'=>'h3','price'=>300,'sub_categories_id'=>3,'categories_id'=>3]
+            ['name'=>'h1','price'=>0,'sub_categories_id'=>1,'categories_id'=>1],['name'=>'h2','price'=>200,'sub_categories_id'=>2,'categories_id'=>2],['name'=>'h3','price'=>300,'sub_categories_id'=>3,'categories_id'=>3]
         ];
         foreach ($array_data as $arr)
         {
