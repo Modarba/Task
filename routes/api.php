@@ -13,14 +13,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-//add discount or delete
-//discount on product or category or subcategory
-//discount on product website value or persent
-//discount on tree
-//اذا عطيت ل سوب بيعطي لكل ابنائو
-// ذا برودكت عندو خصم ما بياخد من الاباء
-// بياخد القوه من تحت لفوق يعني اذا ما عندو بياخد من لي فوقو
-
 //-----------------------------------Dashboard--------------------------------------
 Route::post('addC',[\App\Http\Controllers\Dashboard\CategoryController::class,'AddCategory']);
 Route::get('deleteC/{id}',[\App\Http\Controllers\Dashboard\CategoryController::class,'DeleteCategory']);
@@ -32,6 +24,8 @@ Route::get('deleteP',[\App\Http\Controllers\Dashboard\ProductController::class,'
 Route::post('Adddiscount/{id}',[\App\Http\Controllers\Dashboard\CategoryController::class,'AddDiscount']);
 //Add discount to product
 Route::post('AddDP/{id}',[\App\Http\Controllers\Dashboard\ProductController::class,'AddDiscount']);
+//Add discount to subcategory and product
+Route::post('AddDS/{id}',[\App\Http\Controllers\Dashboard\SubCategoryController::class,'AddDiscount']);
 
 //---------------------------------------Api--------------------------------------------
 Route::get('GetAC',[\App\Http\Controllers\Api\CategoryController::class,'GetAll']);

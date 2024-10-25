@@ -44,7 +44,7 @@ class CategoryController extends Controller
         $category->percent=$finalpersent;
         $category->save();
         $sub=SubCategory::where('categories_id',$id)->first();
-        if (!$sub->price||!$sub->percent)
+        if (!$sub->price&&!$sub->percent)
         {
             $sub->price=$price;
             $sub->percent=$finalpersent;
@@ -53,7 +53,7 @@ class CategoryController extends Controller
         $product=Product::where('categories_id',$id)->get();
         foreach ($product as $products)
         {
-        if (!$products->price|| !$products->percent)
+        if (!$products->price&&!$products->percent)
         {
             $products->price=$price;
             $products->percent=$finalpersent;
