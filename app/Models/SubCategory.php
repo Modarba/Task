@@ -16,10 +16,10 @@ class SubCategory extends Model
     protected $fillable=['name','categories_id'];
     public function Category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class,'categories_id');
     }
     public function Product()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class,'sub_categories_id');
     }
 }

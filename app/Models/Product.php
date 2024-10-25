@@ -11,12 +11,13 @@ class Product extends Model
     protected $fillable=['name','price','sub_categories_id','categories_id'];
     public function SubCategory()
     {
-        return $this->belongsTo(SubCategory::class,'product_subcategory');
+        return $this->belongsTo(SubCategory::class,'sub_categories_id');
     }
+
     public function Category()
     {
 
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class,'categories_id');
     }
 
 }

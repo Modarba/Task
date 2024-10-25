@@ -11,11 +11,11 @@ class Category extends Model
     use HasFactory;
     public function SubCategory()
     {
-        return $this->hasMany(SubCategory::class);
+        return $this->hasMany(SubCategory::class,'categories_id');
     }
 
     public function Product()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class,'categories_id');
     }
 }
