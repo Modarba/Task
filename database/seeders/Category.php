@@ -16,6 +16,7 @@ class Category extends Seeder
         $data=[
             ['name'=>'shoes'],['name'=>'Dress'],['name'=>'Jackets']
         ];
-        DB::table('categories')->insert($data);
+        \App\Models\Category::created($data);
+      //  DB::table('categories')->insert($data);
     }
 }

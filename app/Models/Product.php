@@ -11,11 +11,12 @@ class Product extends Model
     protected $fillable=['name','price'];
     public function SubCategory()
     {
-        return $this->belongsToMany(SubCategory::class,'product_subcategory');
+        return $this->belongsTo(SubCategory::class,'product_subcategory');
     }
     public function Category()
     {
-        return $this->belongsToMany(Product::class);
+
+        return $this->belongsTo(Product::class);
     }
 
 }

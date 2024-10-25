@@ -11,7 +11,7 @@ class Category extends Model
     use HasFactory;
     public function SubCategory()
     {
-        return $this->belongsToMany(SubCategory::class,'category_sub_category');
+        return $this->hasMany(SubCategory::class);
     }
 
     public function Product()
