@@ -28,8 +28,10 @@ Route::post('AddS',[\App\Http\Controllers\Dashboard\SubCategoryController::class
 Route::get('deleteS/{id}',[\App\Http\Controllers\Dashboard\SubCategoryController::class,'DeleteSub']);
 Route::post('AddP',[\App\Http\Controllers\Dashboard\ProductController::class,'AddProduct']);
 Route::get('deleteP',[\App\Http\Controllers\Dashboard\ProductController::class,'DeleteProduct']);
+//Add discount to category and sub and product
 Route::post('Adddiscount/{id}',[\App\Http\Controllers\Dashboard\CategoryController::class,'AddDiscount']);
-
+//Add discount to product
+Route::post('AddDP/{id}',[\App\Http\Controllers\Dashboard\ProductController::class,'AddDiscount']);
 
 //---------------------------------------Api--------------------------------------------
 Route::get('GetAC',[\App\Http\Controllers\Api\CategoryController::class,'GetAll']);
