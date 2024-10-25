@@ -13,7 +13,17 @@ class SubCategory extends Seeder
      */
     public function run(): void
     {
-        $data=[['name'=>'shoes1'],['name'=>'shoes2'],['name'=>'shoes3'],['name'=>'shoes4'],['name'=>'shoes5']];
-        DB::table('sub_categories')->insert($data);
+
+        $array_data=[
+            ['name'=>'shoes1','categories_id'=>1],['name'=>'shoes2','categories_id'=>2],['name'=>'shoes3','categories_id'=>3],['name'=>'shoes4','categories_id'=>4],
+        ];
+        foreach ($array_data as $arr)
+        {
+            $sub=new \App\Models\SubCategory();
+            $sub->name=$arr['name'];
+            $sub->categories_id=$arr['categories_id'];
+            $sub->save();
+        }
+
     }
 }

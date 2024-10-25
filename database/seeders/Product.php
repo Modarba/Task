@@ -13,9 +13,17 @@ class Product extends Seeder
      */
     public function run(): void
     {
-        $data=[
-            ['name'=>'h1','price'=>100],['name'=>'h2','price'=>200],['name'=>'h3','price'=>300]
+        $array_data=[
+            ['name'=>'h1','price'=>100,'sub_categories_id'=>1,'categories_id'=>1],['name'=>'h2','price'=>200,'sub_categories_id'=>2,'categories_id'=>2],['name'=>'h3','price'=>300,'sub_categories_id'=>3,'categories_id'=>3]
         ];
-        DB::table('products')->insert($data);
+        foreach ($array_data as $arr)
+        {
+            $product=new \App\Models\Product();
+            $product->name=$arr['name'];
+            $product->price=$arr['price'];
+            $product->categories_id=$arr['categories_id'];
+            $product->sub_categories_id=$arr['sub_categories_id'];
+            $product->save();
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -13,10 +14,17 @@ class Category extends Seeder
      */
     public function run(): void
     {
-        $data=[
-            ['name'=>'shoes'],['name'=>'Dress'],['name'=>'Jackets']
-        ];
-        \App\Models\Category::created($data);
-      //  DB::table('categories')->insert($data);
+        $category_array=
+            [['name'=>'shoes'],
+            ['name'=>'Dress'],
+            ['name'=>'Jackets'],
+            ['name'=>'h3'],
+            ['name'=>'h4']];
+        foreach ($category_array as $cate)
+        {
+            $category=new  \App\Models\Category();
+            $category->name=$cate['name'];
+            $category->save();
+        }
     }
 }
