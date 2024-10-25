@@ -32,25 +32,34 @@ class CategoryController extends Controller
     // Add discount to category and subcategory and product
     public function AddDiscount(Request $request,$id)
     {
+        $request->validate([
+            'price'=>'required',
+            'percent'=>'required|numeric|min:0|max:100'
+        ]);
         $price=$request->input('price');
+        $percent=$request->input('percent');
         $category=Category::findorfail($id);
         $category->price=$price;
+       $finalpersent=$price-($price*($percent/100));
+        $category->percent=$finalpersent;
         $category->save();
         $sub=SubCategory::where('categories_id',$id)->first();
-        if (!$sub->price)
+        if (!$sub->price||!$sub->percent)
         {
             $sub->price=$price;
+            $sub->percent=$finalpersent;
             $sub->save();
         }
         $product=Product::where('categories_id',$id)->get();
         foreach ($product as $products)
         {
-        if (!$products->price)
+        if (!$products->price|| !$products->percent)
         {
             $products->price=$price;
+            $products->percent=$finalpersent;
             $products->save();
         }}
 
-        return response()->json(['Category before discount'=>$category->before(),'Category after discount'=>$price],201);
+        return response()->json(['Price in Value'=>$price,'price in percent'=>$finalpersent],201);
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $fillable = ['name','discount'];
+    protected $fillable = ['name','discount','percent'];
     use HasFactory;
 
     public function SubCategory()
